@@ -1,7 +1,7 @@
 # packagecloud-poll
-Packagecloud-poll repeatedly polls the packagecloud API, looking for a specific package filename to appear. It is
-intended to be used in continuous integration/continuous deployment pipelines, where we want to block something until 
-we are sure a package has been uploaded and is available before continuing onwards.
+`packagecloud-poll` repeatedly polls the [packagecloud.io](https://packagecloud.io) API, looking for a specific package 
+filename to appear. It is intended to be used in continuous integration/continuous deployment pipelines, where we want 
+to block something until we are sure a package has been uploaded and is available before continuing onwards.
 
 ## Installation
 ```shell
@@ -9,8 +9,8 @@ pip install packagecloud-poll
 ```
 
 ## Setup
-You must set a `PACKAGECLOUD_TOKEN` environment variable before you can run packagecloud-poll. See the packagecloud 
-documentation for instrcutions on how to generate a token.
+You must set a `PACKAGECLOUD_TOKEN` environment variable before you can run packagecloud-poll. See the [packagecloud API
+documentation](https://packagecloud.io/docs/api) for instrcutions on how to generate a token.
 
 ```shell
 export PACKAGECLOUD_TOKEN=deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
@@ -22,7 +22,7 @@ packagecloud-poll --user my_user --repo my_repo_name --type deb --distro ubuntu 
 ```
 
 ## Running
-```shell
+```
 packagecloud-poll
 
 Packagecloud-poll repeatedly polls the packagecloud API, looking for a specific package filename to appear. It is
