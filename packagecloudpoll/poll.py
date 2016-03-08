@@ -4,12 +4,12 @@ Packagecloud-poll repeatedly polls the packagecloud API, looking for a specific 
 intended to be used in continuous integration/continuous deployment scenarios where we want to block until we are sure
 a package has been indexed and is avaiable before continuing.
 
-All arguments are mandatory except for --timeout, --poll_interval and --log-level.
+All arguments are mandatory except for --timeout, --poll_interval, --page_interval and --log-level.
 
 Increased productivity gains high favour from the machine god.
 
 Usage:
-    packagecloud-poll --user user --repo repo_name --type type --distro distro --distro_version distro_version --arch arch --pkg_name pkg_name --filename filename [--timeout timeout] [--poll_interval poll_interval] [--log-level log_level]
+    packagecloud-poll --user user --repo repo_name --type type --distro distro --distro_version distro_version --arch arch --pkg_name pkg_name --filename filename [--timeout timeout] [--poll_interval interval] [--page_interval interval] [--log-level log_level]
     packagecloud-poll --help
     packagecloud-poll --version
 
@@ -23,7 +23,8 @@ Options:
     --pkg_name <pkg_name>              Name of the package to poll for.
     --filename <filename>              File name of the package to poll for. (i.e mystuff_v5.3_precise_amd64.deb)
     --timeout <timeout>                Time in seconds to poll for [default: 600].
-    --poll_interval <timeout>          Polling interval in seconds [default: 30].
+    --poll_interval <interval>         Polling interval in seconds [default: 30].
+    --page_interval <interval>         API pagination interval. Adjust if you are worried about hitting the packagecloud API too fast. [default: 1].
     --log-level <log_level>            Set output log level. One of DEBUG, INFO, WARN, ERROR or CRITICAL [default: INFO].
     --help                             Show this screen.
     --version                          Show version.

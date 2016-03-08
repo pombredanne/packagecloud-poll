@@ -27,7 +27,7 @@ def pkgcloud_api_call(url, method, **kwargs):
             resp.raise_for_status()
             break
         except (HTTPError, ConnectionError, Timeout) as ex:
-            if attempt >= 5:
+            if attempt >= 10:
                 utils.abort(ex.message)
             else:
                 time.sleep(3)
@@ -82,17 +82,18 @@ def look_for_package(env, args):
 
             try:
                 if resp.links['next']:
+                    logger.debug('  pagination sleep')
+                    time.sleep(args['--page_interval'])
                     fetchurl = resp.links['next']['url'].replace(
                             'packagecloud.io/', "{}:@packagecloud.io/".format(env['token']))
                     logger.debug('  fetching next page')
                     resp = pkgcloud_api_call(fetchurl, 'get')
-                    time.sleep(1)
             except KeyError:
                 logger.debug('  no more pages')
                 break
 
         # didn't find what we want, so sleep for poll_interval seconds and then try again.
-        logger.debug("  sleeping")
+        logger.debug("  poll sleep")
         time.sleep(args['--poll_interval'])
         logger.info("  been searching for {} seconds".format((datetime.now() - start_time).seconds))
     else:

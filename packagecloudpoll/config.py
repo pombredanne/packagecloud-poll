@@ -39,6 +39,7 @@ def validate_args(args):
         '--timeout': And(Use(float), lambda f: f > 0, lambda f, i=float(args['--poll_interval']): f > i,
                          error="timeout must be a number greater than 1, and greater than poll_interval (default 30)"),
         '--poll_interval': And(Use(float), lambda f: f > 0, error="poll_interval must be a number greater than 0"),
+        '--page_interval': And(Use(float), lambda f: f > 0, error="page_interval must be a number greater than 0"),
         '--help': bool,
         '--version': bool,
         '--log-level': And(str, len, Use(str.upper),

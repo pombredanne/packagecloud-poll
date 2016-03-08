@@ -1,3 +1,5 @@
 instance/
 .idea/
 *.pyc
+dist/
+*.egg-info/
