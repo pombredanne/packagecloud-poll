@@ -10,7 +10,7 @@ pip install packagecloud-poll
 
 ## Setup
 You must set a `PACKAGECLOUD_TOKEN` environment variable before you can run packagecloud-poll. See the [packagecloud API
-documentation](https://packagecloud.io/docs/api) for instrcutions on how to generate a token.
+documentation](https://packagecloud.io/docs/api) for instructions on how to generate a token.
 
 ```shell
 export PACKAGECLOUD_TOKEN=deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef
@@ -52,4 +52,11 @@ Options:
     --log-level <log_level>            Set output log level. One of DEBUG, INFO, WARN, ERROR or CRITICAL [default: INFO].
     --help                             Show this screen.
     --version                          Show version.
+```
+
+## Developing
+Setup.py creates the packagecloud-poll command. When running from source, execute `run.py` instead.
+
+```bash
+./run.py --help
 ```
