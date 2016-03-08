@@ -1,6 +1,8 @@
 import os
-import utils
+
 from schema import Schema, Use, And, SchemaError
+
+import utils
 
 
 def load_env():

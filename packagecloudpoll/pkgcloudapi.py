@@ -1,9 +1,11 @@
+import logging
+import time
+from datetime import datetime
+
 from requests import Session, Request, HTTPError, ConnectionError, Timeout
 from requests.exceptions import RequestException
+
 import utils
-from datetime import datetime
-import time
-import logging
 
 # logger
 logger = logging.getLogger(__package__)

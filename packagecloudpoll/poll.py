@@ -30,14 +30,16 @@ Options:
 
 """
 
-from ._version import __version__
-from docopt import docopt, DocoptExit
-import sys
-import utils
-import pkgcloudapi
-from datetime import datetime
-import config
 import logging
+import sys
+from datetime import datetime
+
+from docopt import docopt, DocoptExit
+
+import config
+import pkgcloudapi
+import utils
+from ._version import __version__
 
 
 def main():
